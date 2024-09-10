@@ -14,6 +14,13 @@ app.use(express.urlencoded({extended: true, limit: "16kb",}))//extended:true(opt
 app.use(express.static("public"))//storing the public assets like img, favicon, etc in this file 
 app.use(cookieParser())
 
-export {app}
 
+
+//routes import
+import userRouter from './routes/user.routes.js'
+
+//routes declaration
+app.use('/api/v1/users', userRouter)
+
+export {app}
  //app.use >> for middleware config settings
